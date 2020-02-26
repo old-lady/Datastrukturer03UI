@@ -24,6 +24,10 @@ namespace Testing
             ListDat03<Dog> Dogs = new ListDat03<Dog>();
             Dogs.Add(new Dog(), new Dog(), new Dog(), new Dog(), new Dog(), new Dog(), new Dog(), new Dog(), new Dog(), new Dog());
 
+            List<Dog> Dogs2 = new List<Dog>();
+
+      
+
             Console.WriteLine(Dogs.Count);
 
 
