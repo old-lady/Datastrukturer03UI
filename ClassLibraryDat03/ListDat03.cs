@@ -8,12 +8,12 @@ namespace ClassLibraryDat03
         public T[] TheList { get; set; } = new T[0];
 
 
-        public int Count 
+        public int Count
         {
             get
             {
                 return TheList.Length;
-            }       
+            }
         }
 
 
@@ -31,14 +31,48 @@ namespace ClassLibraryDat03
                 Add(item);
             }
         }
-        private void MakeBigger()
+
+        public void Clear()
+        {
+            TheList = new T[0];
+        }
+
+        public void RemoveAt(int index)
         {
 
-        }
-        private void MakeSmall()
-        {
+            if (index <= 0 || index > Count - 1)
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+
+            RemoveFromList(index);
+
 
         }
+
+        private void RemoveFromList(int index)
+        {
+            T[] temp = new T[this.Count - 1];
+            //T itemToIgnore = this.TheList[index];
+
+            //foreach (T item in this.TheList)
+            //{
+            //    if(item )
+            //}
+            for (int i = 0; i < temp.Length; i++)
+            {
+                if (i == index) continue;
+                if (i > index)
+                {
+                    temp[i - 1] = this.TheList[i];
+                    continue;
+                }
+                temp[i] = this.TheList[i];
+            }
+            this.TheList = temp;
+
+        }
+
         private void TransferTs(T[] newList)
         {
             for (int i = 0; i < TheList.Length; i++)
