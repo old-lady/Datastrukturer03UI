@@ -24,12 +24,50 @@ namespace Testing
         static void Main(string[] args)
         {
             //CustomSet();
-            SetTestUnion();
+            //SetTestUnion();
 
+            //TestingBuffer();
+
+            BufferVersion2();
 
 
 
             Console.ReadKey();
+        }
+
+        private static void BufferVersion2()
+        {
+            Buffer<string> buffer = new Buffer<string>(2);
+            var temp = buffer.MaxSize;
+            Console.WriteLine(temp);
+        }
+
+        private static void TestingBuffer()
+        {
+            //Buffer02<>
+
+
+            BufferJulia<string> buffer = new BufferJulia<string>(1);
+            buffer.Add("Hello");
+
+
+            //Console.WriteLine(buffer.Count);
+            //Console.WriteLine(buffer.IsFull);
+            //Console.WriteLine(buffer.MaxSize);
+
+            //buffer.Add(1);
+            //buffer.Add(2);
+            //buffer.Add(3);
+
+            //foreach (var item in buffer.theBuffer)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //Console.WriteLine("Now we print array!");
+            foreach (var item in buffer)
+            {
+                Console.WriteLine(item);
+            }
         }
 
         private static void SetTestUnion()
