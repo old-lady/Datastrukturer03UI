@@ -12,7 +12,7 @@ namespace Testing
 {
     class Program
     {
-
+        
         public int MyProperty
         {
             get { return MyProperty; }
@@ -28,6 +28,16 @@ namespace Testing
 
             //TestingBuffer();
 
+            //int myint = 2;
+            //int myotherint = 3;
+            //TestingBuffer();
+
+            //Console.WriteLine(myint%myotherint);
+            //var test = ForTest();
+            //foreach (var item in test)
+            //{
+            //    Console.WriteLine(item);
+            //}
             BufferVersion2();
 
 
@@ -35,11 +45,84 @@ namespace Testing
             Console.ReadKey();
         }
 
+        private static IEnumerable<int> ForTest()
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                Console.WriteLine(i);
+                Console.WriteLine("Hello World");
+                yield return i;
+
+            }
+           
+        }
+
         private static void BufferVersion2()
         {
-            Buffer<string> buffer = new Buffer<string>(2);
-            var temp = buffer.MaxSize;
-            Console.WriteLine(temp);
+            Buffer<string> buffer = new Buffer<string>(5);
+            buffer.Add("Hello world1");
+            buffer.Add("Hello world2");
+            buffer.Add("Hello world3");
+            buffer.Add("Hello world4");
+            buffer.Add("Hello world5");
+            //buffer.Add("Hello world6");
+            buffer.Remove();
+            buffer.Remove();
+            buffer.Remove();
+            buffer.Remove();
+            buffer.Remove();
+            Console.WriteLine(buffer.Head + " " + buffer.Tail);
+
+            //var temp = buffer.Contains("Hello");
+            //Console.WriteLine(temp);
+
+            //Buffer<UsikkerKlasse> usikkerBuffer = new Buffer<UsikkerKlasse>(10);
+            //UsikkerKlasse object1 = new UsikkerKlasse();
+            //UsikkerKlasse object2 = new UsikkerKlasse();
+            //UsikkerKlasse object3 = new UsikkerKlasse();
+            //usikkerBuffer.Add(object1);
+            //usikkerBuffer.Add(object3);
+            //usikkerBuffer.Add(null);
+
+            ////Console.WriteLine(usikkerBuffer.Contains(object2));
+
+            //Console.WriteLine(usikkerBuffer[1]);
+
+            //foreach (var item in buffer)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            //buffer.Remove();
+            //buffer.Remove();
+
+            //buffer.Add("Hello world6");
+            //buffer.Add("Hello world7");
+
+            ////buffer.Add("Hello world6");
+            ////buffer.Add("Hello world1");
+
+            ////buffer.Add("Hello world6");
+
+            ////Console.WriteLine(buffer.Count);
+            //Console.WriteLine($"Tail is {buffer.tail}");
+            //Console.WriteLine($"´Head is {buffer.head}");
+            //string[] result = buffer.ToArray();
+
+            //foreach (string item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //Console.WriteLine($"Længden af det resulterende array: {result.Length}");
+
+
+
+            //var temp = buffer.Count;
+            //Console.WriteLine(temp);
+            //foreach (var item in buffer.theBuffer)
+            //{
+            //    Console.WriteLine(item);
+            //}
         }
 
         private static void TestingBuffer()
@@ -47,11 +130,13 @@ namespace Testing
             //Buffer02<>
 
 
-            BufferJulia<string> buffer = new BufferJulia<string>(1);
-            buffer.Add("Hello");
+            BufferJulia<string> buffer = new BufferJulia<string>(10);
 
 
-            //Console.WriteLine(buffer.Count);
+
+
+
+            Console.WriteLine(buffer.IsFull);
             //Console.WriteLine(buffer.IsFull);
             //Console.WriteLine(buffer.MaxSize);
 
@@ -63,11 +148,11 @@ namespace Testing
             //{
             //    Console.WriteLine(item);
             //}
-            //Console.WriteLine("Now we print array!");
-            foreach (var item in buffer)
-            {
-                Console.WriteLine(item);
-            }
+            ////Console.WriteLine("Now we print array!");
+            //foreach (var item in buffer)
+            //{
+            //    Console.WriteLine(item);
+            //}
         }
 
         private static void SetTestUnion()

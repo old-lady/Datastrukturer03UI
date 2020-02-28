@@ -5,8 +5,67 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Datastrukturer03UI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="450" Width="800"
         
+        
+        Background="{DynamicResource MaterialDesignDarkBackground}"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+        FontFamily="{materialDesign:MaterialDesignFont}"
+        
+        
+        >
+
+
+    <Window.InputBindings>
+        <KeyBinding Key="A" Command="{Binding Add}"/>
+        <KeyBinding Key="R" Command="{Binding Remove}"/>
+    </Window.InputBindings>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!--<TextBox Grid.Row="1" Background="AliceBlue" Text="{Binding TextToBeAdded, Mode=TwoWay}"/>-->
+            <Button Grid.Row="2" Content="Add" Command="{Binding Add}" IsDefault="True"/>
+        </Grid>
+
+        <ListView Grid.Column="1" ItemsSource="{Binding Buffer}" Foreground="Wheat">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem" BasedOn="{StaticResource MaterialDesignGridViewItem}">
+                    <Setter Property="Background" Value="{Binding MyColor}"/>
+                    <Setter Property="Focusable" Value="false"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="String" DisplayMemberBinding="{Binding TheString}"/>
+                    <GridViewColumn Header="Tail" DisplayMemberBinding="{Binding Tail}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <Grid Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Button Content="Remove" Grid.Row="2" Command="{Binding Remove}" />
+        </Grid>
+
     </Grid>
 </Window>

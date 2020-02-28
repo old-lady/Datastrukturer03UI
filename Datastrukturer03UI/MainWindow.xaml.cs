@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ClassLibraryDat03;
 
 namespace Datastrukturer03UI
 {
@@ -22,6 +23,7 @@ namespace Datastrukturer03UI
     {
         public MainWindow()
         {
+            DataContext = new ViewModel();
             InitializeComponent();
         }
     }

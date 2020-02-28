@@ -119,6 +119,13 @@ namespace ClassLibraryDat03
             }
         }
 
+        //public string this[string[][] index]
+        //{
+        //    get
+        //    {
+        //        return index;
+        //    }
+        //}
         public T this[int index]
         {
             get

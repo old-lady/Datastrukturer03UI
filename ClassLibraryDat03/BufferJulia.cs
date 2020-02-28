@@ -156,6 +156,7 @@ namespace ClassLibraryDat03
             {
                 // why cant == be aplied between types of T?
                 if (EqualityComparer<T>.Default.Equals(elem, item)) return true;
+                //if (BufferJulia<T>.Equals(elem, item)) return true;
             }
             return false;
         }
