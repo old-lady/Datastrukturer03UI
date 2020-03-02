@@ -62,6 +62,14 @@ namespace ClassLibraryDat03
         }
         public SolidColorBrush MyColor { get; set; } = new SolidColorBrush(Colors.DarkGray);
 
+        // colors:
+
+        public SolidColorBrush NotInBuffer { get; set; } = new SolidColorBrush(Colors.DarkGray);
+        public SolidColorBrush InBuffer { get; set; } = new SolidColorBrush(Colors.DarkGoldenrod);
+        public SolidColorBrush IsHead { get; set; } = new SolidColorBrush(Colors.Red);
+        public SolidColorBrush IsTail { get; set; } = new SolidColorBrush(Colors.ForestGreen);
+        
+
         public BufferItem(string theString)
         {
             TheString = theString;

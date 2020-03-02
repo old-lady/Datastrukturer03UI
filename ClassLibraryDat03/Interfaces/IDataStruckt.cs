@@ -7,7 +7,8 @@ namespace ClassLibraryDat03
     public interface IDataStruckt<T> : IEnumerable<T>
     {
         int Count { get; }
-        bool Contains(T elem); void Clear();
+        bool Contains(T elem); 
+        void Clear();
         T[] ToArray();
     }
 }

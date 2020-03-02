@@ -33,7 +33,6 @@ namespace ClassLibraryDat03
             }
         }
 
-
         public bool IsEmpty
         {
             get
@@ -66,6 +65,10 @@ namespace ClassLibraryDat03
                 if (tail == -1)
                 {
                     return 0;
+                }
+                if (head == tail)
+                {
+                    return 1;
                 }
                 if (head > tail)
                 {
@@ -153,13 +156,14 @@ namespace ClassLibraryDat03
         {
 
             T[] results = new T[Count];
-            if (tail == -1)
+            if (IsEmpty)
             {
-                return new T[0];
+                return results;
             }
-            if (tail == head)
-            {
-                results[0] = theBuffer[tail];
+            //if (tail == head)
+            if (Count == 1)
+                {
+                results[0] = theBuffer[head];
                 return results;
             }
             if (tail > head)
@@ -177,14 +181,15 @@ namespace ClassLibraryDat03
                 int j = 0;
                 for (int i = head; i != tail; i++)
                 {
-                    results[j] = theBuffer[i % MaxSize];
                     i = i % MaxSize;
+                    results[j] = theBuffer[i];
                     j++;
                 }
-                if (IsFull)
-                {
-                    results[Count - 1] = theBuffer[tail];
-                }
+                return results;
+            }
+            if (IsFull)
+            {
+                results[Count - 1] = theBuffer[tail];
                 return results;
             }
 

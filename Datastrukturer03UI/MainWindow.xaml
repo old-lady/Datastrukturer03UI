@@ -39,7 +39,10 @@
             </Grid.RowDefinitions>
 
             <!--<TextBox Grid.Row="1" Background="AliceBlue" Text="{Binding TextToBeAdded, Mode=TwoWay}"/>-->
-            <Button Grid.Row="2" Content="Add" Command="{Binding Add}" IsDefault="True"/>
+            <StackPanel Grid.Row="2">
+                <TextBlock Text="{Binding Count}" FontSize="30" HorizontalAlignment="Center" Foreground="Wheat"/>
+                <Button  Content="Add" Command="{Binding Add}" IsDefault="True"/>
+            </StackPanel>
         </Grid>
 
         <ListView Grid.Column="1" ItemsSource="{Binding Buffer}" Foreground="Wheat">
@@ -51,8 +54,9 @@
             </ListView.ItemContainerStyle>
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="String" DisplayMemberBinding="{Binding TheString}"/>
-                    <GridViewColumn Header="Tail" DisplayMemberBinding="{Binding Tail}"/>
+                    <GridViewColumn Header="String" DisplayMemberBinding="{Binding TheString}" Width="auto"/>
+                    <GridViewColumn Header="Tail" DisplayMemberBinding="{Binding Tail}" Width="auto"/>
+                    <GridViewColumn Header="Head" DisplayMemberBinding="{Binding Head}" Width="auto"/>
                 </GridView>
             </ListView.View>
         </ListView>

@@ -66,11 +66,17 @@ namespace Testing
             buffer.Add("Hello world4");
             buffer.Add("Hello world5");
             //buffer.Add("Hello world6");
+            //buffer.Add("Hello world7");
+            //buffer.Add("Hello world8");
+            //buffer.Add("Hello world9");
+            //buffer.Add("Hello world10");
+            //buffer.Add("Hello world6");
+
             buffer.Remove();
-            buffer.Remove();
-            buffer.Remove();
-            buffer.Remove();
-            buffer.Remove();
+            buffer.Add("Hello world3extra");
+
+            Console.WriteLine(buffer.Count);
+            Console.WriteLine( buffer.ToArray().Length);
             Console.WriteLine(buffer.Head + " " + buffer.Tail);
 
             //var temp = buffer.Contains("Hello");

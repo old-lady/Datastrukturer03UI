@@ -3,11 +3,24 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace ClassLibraryDat03
 {
-    public class ViewModel
+    public class ViewModel : BaseViewModel
     {
+
+        private int count;
+        public int Count 
+        {
+            get { return count; }
+            private set
+            {
+                count = value;
+                OnPropertyChanged();
+            } 
+        }
+
         public BufferObservable<BufferItem> buffer { get; set; }
         public ObservableCollection<BufferItem> Buffer { get; set; }
 
@@ -23,7 +36,7 @@ namespace ClassLibraryDat03
         /// </summary>
         public ViewModel()
         {
-            buffer = new BufferObservable<BufferItem>(10);
+            buffer = new BufferObservable<BufferItem>(5);
             Buffer = new ObservableCollection<BufferItem>();
             Add = new Command(AlwaysTrue, Add_Command_ExecuteMethod);
             Remove = new Command(AlwaysTrue, Remove_Command_ExecuteMethod);
@@ -37,6 +50,27 @@ namespace ClassLibraryDat03
                 Buffer.Add(item);
             }
             ShadowPlay_UpdateIndex();
+            ShadowPlay_UpdateIfInBuffer();
+            Count = buffer.Count;
+
+        }
+
+        private void ShadowPlay_UpdateIfInBuffer()
+        {
+            foreach (var item in buffer.theBuffer)
+            {
+                if (item == null) continue;
+                if (item.Head == true || item.Tail == true) continue;
+                if (buffer.Contains(item))
+                {
+                    item.MyColor = item.InBuffer;
+                }
+                else
+                {
+                    item.MyColor = item.NotInBuffer;
+                }
+
+            }
         }
 
         private void ShadowPlay_UpdateIndex()
@@ -88,6 +122,7 @@ namespace ClassLibraryDat03
 
         private void Add_Command_ExecuteMethod(object obj)
         {
+
             if (buffer.IsFull == true)
             {
                 return;
@@ -110,6 +145,7 @@ namespace ClassLibraryDat03
 
             buffer.Remove();
             ShadowPlay();
+
         }
     }
 }
